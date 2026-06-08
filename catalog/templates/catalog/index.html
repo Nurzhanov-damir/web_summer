@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Book Catalog</title>
+</head>
+<body>
+    <h1>YO Hello everyone! This is my book catalog</h1>
+    
+    {% for book in books %}
+    <div>
+        <h2>{{ book.title }}</h2>
+        <p>Author: {{ book.author }}</p>
+        <p>Year: {{ book.year }}</p>
+        <p>Rating: {{ book.rating }}</p>
+    </div>
+    <hr>
+    {% endfor %}
+</body>
+</html>
