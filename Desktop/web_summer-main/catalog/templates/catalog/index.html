@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Book Catalog</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f0eb;
+            padding: 40px;
+        }
+        h1 {
+            color: #3d2b1f;
+            font-size: 36px;
+            margin-bottom: 30px;
+        }
+        .books {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        .card {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            width: 220px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        .card img {
+            width: 100%;
+            height: 200px;
+            object-fit: contain;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+        .card h2 {
+            color: #3d2b1f;
+            font-size: 18px;
+        }
+        .card p {
+            color: #666;
+            font-size: 14px;
+        }
+        .rating {
+            color: #c0392b;
+            font-weight: bold;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <h1> My Book Catalog</h1>
+    <div class="books">
+        {% for book in books %}
+        <div class="card">
+            <img src="{{ book.cover }}" alt="{{ book.title }}">
+            <h2>{{ book.title }}</h2>
+            <p> {{ book.author }}</p>
+            <p> {{ book.year }}</p>
+            <p class="rating">
+                {% for i in "12345" %}
+                    {% if forloop.counter <= book.rating %}⭐{% else %}☆{% endif %}
+                {% endfor %}
+            </p>
+        </div>
+        {% endfor %}
+    </div>
+</body>
+</html>
